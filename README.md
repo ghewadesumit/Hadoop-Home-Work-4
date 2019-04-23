@@ -9,7 +9,7 @@ Hadoop is an open-source software framework for storing data and running applica
 mapper and reducer scripts that analyze the data and yield summary counts for each vehicle that describe the total count, per vehicle type, that the vehicle type was involved in an incident.
 * If the same type of vehicle was involved more than once in an incident, count the vehicle twice for the purpose of the summary statistic.
 
-#Preprocessing
+# Preprocessing
 
 In here we have to calculate the number of occurance of a particular vehicle type in an accident. 
 
@@ -106,7 +106,6 @@ drwxr-xr-x   - ghewadsa hdfs          0 2019-04-22 02:40 dir_output
 -rw-r--r--   3 ghewadsa hdfs          0 2019-04-22 02:40 dir_output/_SUCCESS
 -rw-r--r--   3 ghewadsa hdfs       5161 2019-04-22 02:40 dir_output/part-00000
 ```
-
 * Check the output using the following command:
 ```
 ghewadsa@hadoop-gate-0:~$ hadoop fs -cat ./dir_output/part-00000
@@ -122,5 +121,19 @@ ghewadsa@hadoop-gate-0:~$ hadoop fs -cat ./dir_output/part-00000
 2 DOO   1
 2 DR SEDAN      72
 ```
+# Steps for running the Mapper & Reducer on CSCloud
 
-#E
+* Delete the directory for the output. This precaution is taken if there is same directory then system throws an error of the same directory exists.
+
+```
+hadoop dfs -rm -r dir_output
+```
+
+* If there is no such directory at your location then use the following command to execute the file:-
+```
+hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file /home/ghewadsa/mapper.py -mapper /home/ghewadsa/mapper.py -file /home/ghewadsa/reducer.py -reducer /home/ghewadsa/reducer.py -input /tmp/nyc.data -output dir_output
+```
+* To check the output of the file run the following command:
+```
+hadoop fs -cat ./dir_output/part-00000
+```
