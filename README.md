@@ -91,7 +91,7 @@ drwxr-xr-x   - ghewadsa hdfs          0 2019-04-22 02:37 dir_hadoop
 ```
 * Run the Python files using the command:
 ```
-hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file ./mapper.py -mapper ./mapper.py -file ./reducer.py -reducer ./reducer.py -input /tmp/nyc.data -output dir_output
+ghewadsa@hadoop-gate-0:~$ hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file ./mapper.py -mapper ./mapper.py -file ./reducer.py -reducer ./reducer.py -input /tmp/nyc.data -output dir_output
 ```
 * Check the directory of HDFS using following command
 ```
