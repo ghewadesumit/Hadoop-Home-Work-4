@@ -76,8 +76,8 @@ drwxr-xr-x   - ghewadsa hdfs          0 2019-04-22 02:37 dir_hadoop
 * Upload the Python files on the HDFS using following command:
 
 ```
-ghewadsa@hadoop-gate-0:~$ hadoop fs -put mapper.py hw4_hadoop
-ghewadsa@hadoop-gate-0:~$ hadoop fs -put reducer.py hw4_hadoop
+ghewadsa@hadoop-gate-0:~$ hadoop fs -put mapper.py dir_hadoop
+ghewadsa@hadoop-gate-0:~$ hadoop fs -put reducer.py dir_hadoop
 ```
 * Check the directory of HDFS using following command
 ```
